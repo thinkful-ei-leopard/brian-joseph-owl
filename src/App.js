@@ -28,9 +28,13 @@ function App(props) {
         {props.store.participants.map(item => {
           return <Stage key={item.id} name={item.name} avatar={item.avatar} onStage={item.onStage}/>;
         })}
+        <div> 
+              <div className ="stage-volume indicator"> </div> 
+        <img src={props.store.participants[0].avatar} alt= 'avatar'></img>
+        </div>
         {/* Make JSX for the little avatar guy below here */}
       </div>
-
+      
       </div>
   );
 }

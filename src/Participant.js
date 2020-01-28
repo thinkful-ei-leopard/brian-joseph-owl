@@ -27,7 +27,7 @@ function Participant(props) {
                 {sessionData}
             </p>
             {/* When you click the "Boot" button the client is kicked from the Session and Stage */}
-            <button></button>
+            <button>Boot</button>
         </div>
     );
 };

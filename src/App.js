@@ -1,11 +1,17 @@
 import React from 'react';
 import './App.css';
-
-function App() {
+import Participant from './Participant';
+function App(props) {
   return (
     <div className="App">
+    <div className="Participant.list">
+      {props.STORE.participants.map(item => {
+        return <Participant />
+      </div>
 
-    </div>
+      
+
+      </div>
   );
 }
 

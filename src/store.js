@@ -1,5 +1,5 @@
 const STORE = {
-    participants = [
+    participants: [
         {
             id: 1,
             name: 'Koren Templeton',
@@ -40,7 +40,7 @@ const STORE = {
             onStage: true
         }
     ],
-    chatEvents = [
+    chatEvents: [
         {
             participantId: 3,
             type: 'message',

@@ -5,7 +5,8 @@ function App(props) {
   return (
     <div className="App">
       <div className="Participant-list">
-        {props.STORE.participants.map(item => {
+        {console.log(props.store)}
+        {props.store.participants.map(item => {
           return <Participant key={item.id} name={item.name} avatar={item.avatar} inSession={item.inSession} onStage={item.onStage} />;
         })}
       </div>

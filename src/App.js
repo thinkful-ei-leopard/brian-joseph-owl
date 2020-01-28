@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
 import Participant from './Participant';
+import Stage from './Stage';
+import Chat from './Chat';
+
 function App(props) {
   return (
     <div className="App">
       <div className="Participant-list">
-        {console.log(props.store)}
         {props.store.participants.map(item => {
           return <Participant key={item.id} name={item.name} avatar={item.avatar} inSession={item.inSession} onStage={item.onStage} />;})
         .sort(function(a, b){
@@ -22,8 +24,12 @@ function App(props) {
         })}
 
       </div>
-
-      
+      <div className="Stage-elements">
+        {props.store.participants.map(item => {
+          return <Stage key={item.id} name={item.name} avatar={item.avatar} onStage={item.onStage}/>;
+        })}
+        {/* Make JSX for the little avatar guy below here */}
+      </div>
 
       </div>
   );

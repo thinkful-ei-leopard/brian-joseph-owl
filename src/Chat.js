@@ -1,53 +1,32 @@
 import React from 'react';
 import './Chat.css';
-function renderNonMessage(participant,type,timestamp) {
-    let chatEvent = '';
-    switch(type) {
+import ChatNonMessage from './ChatNonMessage';
 
-        case 'thumbs-up':
-            chatEvent = ' gave a thumbs-up';
-            break;
-        case 'thumbs-down':
-            chatEvent = ' gave a thumbs-down';
-            break;
-        case 'raise-hand':
-            chatEvent = ' raised their hand';
-            break;
-        case 'clap':
-            chatEvent = ' clapped';
-            break;
-        case 'join':
-                chatEvent = ' joined';
-            break;
-        case 'leave':
-                chatEvent = ' left';
-            break;
-        case 'join-stage':
-                chatEvent = ' joined the staged';
-            break;
-        case 'leave-stage':
-                chatEvent = ' left the staged';
-            break;
-        
-        default:
-            console.log('No type');
-    }
-}
 
 function Chat(props) {
 
-    let chatEvents = ''; // NOT SURE IF JSX IS A STRING
-    chatEvents = props;
-    console.log(chatEvents);
+    // let chatId = props.participantId
+    // let chatName = props.participants[chatId].name;
+    // This doesnt work for some reason
+    // chatName prints to the console, but no matter how we try to pass
+    // it to ChatNonMessage, React always breaks by saying its undefined or an object
+    // console.log(chatName);
+    if(props.type !== 'message') {
+        return <ChatNonMessage key={props.timestamp} name='Steve' type={props.type} />
+    } else {
+        let chatDate = new Date(props.timestamp);
+
+        return (
+            <div className="Chat-event">
+                <img src="DOESNT WORK EITHER" alt="Not working" />
+                <span><strong>{props.name}</strong></span>
+                <span>{chatDate.toLocaleTimeString()}</span>
+                <p className="Chat-Message">{props.message}</p>
+
+            </div>
+        );
+    }
     
-    return ( 
-        // REMINDER: sort elements by timestamp
-
-        <div className="Chat-entries">
-            {/* <p>{chatEvents}</p> */}
-        </div>
-
-    );
 };
 
 export default Chat;

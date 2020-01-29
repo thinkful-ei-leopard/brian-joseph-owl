@@ -1,3 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Stage /> renders this UI as expected 1`] = `<div />`;
+exports[`<Stage /> renders this UI as expected 1`] = `
+<div>
+  <div
+    className="Stage-user-info"
+  >
+    <p />
+    <div
+      className="Stage-volume-indicator"
+    />
+    <i>
+      Volume Icon here
+    </i>
+    <i>
+      Magnifying Icon here
+    </i>
+  </div>
+  <img
+    alt="avatar for the person"
+  />
+</div>
+`;

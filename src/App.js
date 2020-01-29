@@ -6,8 +6,7 @@ import Chat from './Chat';
 
 function App(props) {
 
-  // counter to get a different ID for each element in Chat
-  let counter = 0;
+
   return (
     <div className="App">
       <div className="Participant-list">
@@ -40,9 +39,9 @@ function App(props) {
       
       <div className="Chat-elements">
         <div>
-          {props.store.chatEvents.map(item => {
+          {props.store.chatEvents.map((item, index)=> {
             // passing through props.store.participants (THE WHOLE ARRAY) is not very efficient, but it works without needing to refactor right now
-              return <Chat key={counter++} participantId={item.participantId} type={item.type} message={item.message} time={item.time} timestamp={item.timestamp} participants={props.store.participants} />;
+              return <Chat key={index} participantId={item.participantId} type={item.type} message={item.message} time={item.time} timestamp={item.timestamp} participants={props.store.participants} />;
             })}
           <label htmlFor="chat-input"></label>
           <input id="chat-input" name="chat-input" type="text" placeholder="Chat" />

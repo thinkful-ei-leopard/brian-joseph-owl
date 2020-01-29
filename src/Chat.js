@@ -5,14 +5,16 @@ import ChatNonMessage from './ChatNonMessage';
 
 function Chat(props) {
 
-    // let chatId = props.participantId
-    // let chatName = props.participants[chatId].name;
+    let chatIndex = props.participantId - 1; // THIS LINE CAUSES THE TESTS TO BREAK
+    let chatName = props.participants[chatIndex].name;
     // This doesnt work for some reason
     // chatName prints to the console, but no matter how we try to pass
     // it to ChatNonMessage, React always breaks by saying its undefined or an object
     // console.log(chatName);
+    console.log(props);
+    
     if(props.type !== 'message') {
-        return <ChatNonMessage key={props.timestamp} name='Steve' type={props.type} />
+        return <ChatNonMessage key={props.timestamp} name={chatName} type={props.type} />
     } else {
         let chatDate = new Date(props.timestamp);
 

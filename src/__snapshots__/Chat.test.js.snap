@@ -1,3 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Chat /> renders this UI as expected 1`] = `<div />`;
+exports[`<Chat /> renders this UI as expected 1`] = `
+<div
+  className="Chat-event"
+>
+  <strong>
+    Steve
+  </strong>
+  
+</div>
+`;

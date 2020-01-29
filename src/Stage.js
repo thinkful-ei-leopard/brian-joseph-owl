@@ -13,7 +13,7 @@ function Stage(props) {
         <div>
             <div className="Stage-user-info">
                 <p>{props.name}</p>
-                <div class="Stage-volume-indicator"></div>
+                <div className="Stage-volume-indicator"></div>
                 <i>Volume Icon here</i>
                 <i>Magnifying Icon here</i>
             </div>

@@ -5,6 +5,9 @@ import Stage from './Stage';
 import Chat from './Chat';
 
 function App(props) {
+
+  // counter to get a different ID for each element in Chat
+  let counter = 0;
   return (
     <div className="App">
       <div className="Participant-list">
@@ -29,12 +32,22 @@ function App(props) {
           return <Stage key={item.id} name={item.name} avatar={item.avatar} onStage={item.onStage}/>;
         })}
         <div> 
-              <div className ="stage-volume indicator"> </div> 
-        <img src={props.store.participants[0].avatar} alt= 'avatar'></img>
+            <div className ="stage-volume indicator"> </div> 
+            <img src={props.store.participants[0].avatar} alt= 'avatar'></img>
         </div>
-        {/* Make JSX for the little avatar guy below here */}
+
       </div>
       
+      <div className="Chat-elements">
+        <div>
+          {props.store.chatEvents.map(item => {
+            // passing through props.store.participants (THE WHOLE ARRAY) is not very efficient, but it works without needing to refactor right now
+              return <Chat key={counter++} participantId={item.participantId} type={item.type} message={item.message} time={item.time} timestamp={item.timestamp} participants={props.store.participants} />;
+            })}
+          <label htmlFor="chat-input"></label>
+          <input id="chat-input" name="chat-input" type="text" placeholder="Chat" />
+        </div>
+      </div>
       </div>
   );
 }

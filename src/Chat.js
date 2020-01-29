@@ -1,47 +1,45 @@
 import React from 'react';
 import './Chat.css';
+function renderNonMessage(participant,type,timestamp) {
+    let chatEvent = '';
+    switch(type) {
+
+        case 'thumbs-up':
+            chatEvent = ' gave a thumbs-up';
+            break;
+        case 'thumbs-down':
+            chatEvent = ' gave a thumbs-down';
+            break;
+        case 'raise-hand':
+            chatEvent = ' raised their hand';
+            break;
+        case 'clap':
+            chatEvent = ' clapped';
+            break;
+        case 'join':
+                chatEvent = ' joined';
+            break;
+        case 'leave':
+                chatEvent = ' left';
+            break;
+        case 'join-stage':
+                chatEvent = ' joined the staged';
+            break;
+        case 'leave-stage':
+                chatEvent = ' left the staged';
+            break;
+        
+        default:
+            console.log('No type');
+    }
+}
 
 function Chat(props) {
 
     let chatEvents = ''; // NOT SURE IF JSX IS A STRING
     chatEvents = props;
     console.log(chatEvents);
-    switch(props.type) {
-        case 'message':
-            // JSX HERE FOR MESSAGE
-            break;
-        case 'thumbs-up':
-            // JSX HERE
-            break;
-        case 'thumbs-down':
-            // JSX HERE
-            break;
-        case 'raise-hand':
-            // JSX HERE
-            break;
-        case 'clap':
-            // JSX HERE
-            break;
-        case 'join':
-            // THIS IS HARDCODED AND WRONG
-            chatEvents = `<p>${props.participants[props.participantId].name}}</p>`;
-            console.log(`JOIN CASE HERE: ${chatEvents}`);
-            
-            // JSX HERE
-            break;
-        case 'leave':
-            // JSX HERE
-            break;
-        case 'join-stage':
-            // JSX here
-            break;
-        case 'leave-stage':
-            // JSX here
-            break;
-        
-        default:
-            console.log('No type');
-    }
+    
     return ( 
         // REMINDER: sort elements by timestamp
 
